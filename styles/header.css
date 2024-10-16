@@ -1,0 +1,27 @@
+.header {
+  padding: 1.5rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  width: 9.25rem;
+  height: 2.5rem;
+}
+
+.header__list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__list__item {
+  font-weight: 500;
+  color: var(--white-text-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.header__list__item:hover {
+  color: var(--red-text-color);
+}
