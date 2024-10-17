@@ -1,0 +1,7 @@
+.copy {
+  text-align: center;
+  padding: 1.5rem 0rem;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  color: var(--white-text-color);
+}

@@ -1,0 +1,79 @@
+.movie__detail {
+  position: relative;
+}
+
+.movie__detail__back {
+  border: none;
+  outline: none;
+  background: inherit;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  img {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.movie__detail__back:hover {
+  animation: moveArrow 0.8s ease infinite;
+}
+
+.movie__detail__back:hover img {
+  opacity: 0.8;
+}
+
+.movie__info {
+  display: flex;
+  align-items: center;
+}
+
+.movie__info__img {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.movie__info__desc {
+  flex: 1;
+  color: var(--white-text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+
+  h2 {
+    font-size: 2rem;
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: 1.3rem;
+    color: #a9a9a9;
+    line-height: 1.4;
+    word-break: keep-all;
+    text-wrap: balance;
+  }
+}
+
+.movie__info__desc:hover :last-child {
+  color: var(--white-text-color);
+}
+
+/* 애니메이션 */
+@keyframes moveArrow {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
