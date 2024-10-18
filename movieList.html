@@ -34,13 +34,23 @@
       </header>
 
       <main>
-        <section>
+        <section class="movie__search">
           <div>
-            <div>
-              <input class="search__input" />
-              <butto>검색</butto>
+            <h2 class="movie__search__title">
+              영화 제목을 통해 영화를 검색하세요.
+            </h2>
+            <div class="movie__search__container">
+              <img class="movie__search__img" src="./images/search.svg" />
+              <input
+                class="movie__search__input"
+                class="search__input"
+                placeholder="영화 제목을 통해 검색하세요."
+              />
+              <butto class="movie__search__btn">검색</butto>
             </div>
-            <div></div>
+
+            <div class="movie__search__results"></div>
+            <div class="second__trigger"></div>
           </div>
         </section>
       </main>

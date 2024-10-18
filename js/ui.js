@@ -1,4 +1,4 @@
-import { getIdMovie, getRatedMovies } from "./api.js";
+import { getIdMovie, getRatedMovies, getSearchMovies } from "./api.js";
 
 // 문자열 길이 조절
 const strCut = (str, cutNum) => {
@@ -71,5 +71,45 @@ export const displayIdCard = async (id, element) => {
     } catch (error) {
       throw new Error(`이런 ${error} 가 발생했습니다.`);
     }
+  }
+};
+
+// 영화 검색 페이지 그리기
+export const displaySearchResultCards = async (page, title, element) => {
+  const moviesData = await getSearchMovies(page, title);
+
+  element.innerHTML = "";
+
+  if (moviesData && moviesData.results.length > 0) {
+    try {
+      moviesData.results.forEach((movie) => {
+        const divEl = document.createElement("div");
+        divEl.setAttribute("key", movie.id);
+        divEl.classList.add("movie__card");
+        const movieItem = `
+        <a class='movie__link' href='./movieDetail.html?id=${movie.id}'>
+          <img class="movie__img" src=${
+            movie.backdrop_path
+              ? `https://image.tmdb.org/t/p/w300${movie.backdrop_path}`
+              : "https://ekari.jp/wp-content/uploads/2020/12/noimage.png"
+          } alt="${movie.title}"/>
+          <div class="movie__text__container">
+            <h3 class="movie__title">${strCut(movie.title, 20)}</h3>
+            <p class="movie__date"> 개봉 : ${movie.release_date}</p>
+            <p class="movie__desc">${
+              movie.overview ? strCut(movie.overview, 35) : "설명이 없습니다."
+            }</p>
+          </div>
+        </a>
+        `;
+
+        divEl.innerHTML = movieItem;
+        element.append(divEl);
+      });
+    } catch (error) {
+      throw new Error(`이런 ${error} 가 발생했습니다.`);
+    }
+  } else {
+    element.innerHTML = `<p class="movie__no__result">${title} 에 대한 검색 결과가 없습니다.</p>`;
   }
 };
