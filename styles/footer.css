@@ -5,3 +5,16 @@
   letter-spacing: 1px;
   color: var(--white-text-color);
 }
+
+@media (max-width: 530px) {
+  .copy {
+    padding: 1rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 531px) and (max-width: 768px) {
+  .copy {
+    font-size: 0.9rem;
+  }
+}

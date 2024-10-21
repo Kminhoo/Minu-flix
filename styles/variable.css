@@ -2,8 +2,11 @@
   --red-text-color: #db0000;
   --white-text-color: #f5f0f0;
   --gray-text-color: #595959;
+  --gray-text-color2: #8f8f8f;
   --dark-bg-color: #000;
+  --dark-bg-color2: #16171d;
   --white-bg-color: #fff;
   --hover-white-color: #f5f0f0;
   --hover-red-color: #cc1515;
+  --loading-border-color: #514b82;
 }

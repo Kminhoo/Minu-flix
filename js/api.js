@@ -14,11 +14,7 @@ export const getRatedMovies = async (page) => {
 
     const data = await response.json();
 
-    return {
-      results: data.results,
-      totalPage: data.totalPage,
-      currentPage: data.page,
-    };
+    return data;
   } catch (error) {
     throw new Error(`이런 ${error} 가 발생했어요!`);
   }

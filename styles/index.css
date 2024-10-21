@@ -5,6 +5,7 @@
 @import url(./footer.css);
 @import url(./detail.css);
 @import url(./movieList.css);
+@import url(./movieMakr.css);
 
 body {
   background-color: var(--dark-bg-color);

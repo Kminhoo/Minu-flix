@@ -65,6 +65,99 @@
   color: var(--white-text-color);
 }
 
+@media (max-width: 530px) {
+  .movie__detail {
+    padding: 1rem;
+  }
+
+  .movie__detail__back {
+    top: 0;
+    right: 1rem;
+
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  .movie__info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .movie__info__desc {
+    gap: 0.5rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (min-width: 531px) and (max-width: 768px) {
+  .movie__detail {
+    padding: 1.3rem;
+  }
+
+  .movie__detail__back {
+    top: 1rem;
+    right: 1rem;
+
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  .movie__info {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .movie__info__desc {
+    gap: 1rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .movie__detail {
+    padding: 1.5rem 1rem;
+  }
+
+  .movie__info {
+    gap: 1.5rem;
+  }
+
+  .movie__detail__back {
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
+  .movie__info__desc {
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
 /* 애니메이션 */
 @keyframes moveArrow {
   0% {

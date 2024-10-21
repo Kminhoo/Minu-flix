@@ -13,7 +13,7 @@
 .header__list {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 1.5rem;
 }
 
 .header__list__item {
@@ -24,4 +24,60 @@
 
 .header__list__item:hover {
   color: var(--red-text-color);
+}
+
+@media (max-width: 530px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .header__logo {
+    width: 5rem;
+    height: 2.5rem;
+  }
+
+  .header__list {
+    gap: 1rem;
+  }
+
+  .header__list__item {
+    font-weight: 500;
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 531px) and (max-width: 768px) {
+  .header {
+    padding: 1.2rem;
+  }
+
+  .header__logo {
+    width: 7rem;
+    height: 2.5rem;
+  }
+
+  .header__list {
+    gap: 1.3rem;
+  }
+
+  .header__list__item {
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    padding: 1.5rem 1rem;
+  }
+
+  .header__logo {
+    width: 8rem;
+  }
+
+  .header__list {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
 }
