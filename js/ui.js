@@ -32,7 +32,7 @@ export const displayMovieCards = async (page, element) => {
           }" alt="${movie.title}"/>
           <div class="movie__text__container">
             <h3 class="movie__title">${strCut(movie.title, 20)}</h3>
-            <p class="movie__date"> 개봉 : ${movie.release_date}</p>
+            <p class="movie__date"> 개봉일 : ${movie.release_date}</p>
             <p class="movie__desc">${
               movie.overview ? strCut(movie.overview, 35) : "설명이 없습니다."
             }</p>
@@ -91,6 +91,11 @@ export const displayIdCard = async (id, element) => {
 export const displaySearchResultCards = async (page, title, element) => {
   const moviesData = await getSearchMovies(page, title);
 
+  const returnData = {
+    totalPages: moviesData.total_pages ? moviesData.total_pages : 0,
+    totalResults: moviesData.total_results ? moviesData.total_results : 0,
+  };
+
   page === 1 ? (element.innerHTML = "") : null;
 
   if (moviesData && moviesData.results.length > 0) {
@@ -108,7 +113,7 @@ export const displaySearchResultCards = async (page, title, element) => {
         <a class='movie__link' href='./movieDetail.html?id=${movie.id}'>
           <img class="movie__mark" src='./images/${
             isBookMarked ? "fillstar.svg" : "star.svg"
-          }' /> 
+          }' />
           <img class="movie__img" src=${
             movie.backdrop_path
               ? `https://image.tmdb.org/t/p/w300${movie.backdrop_path}`
@@ -116,7 +121,7 @@ export const displaySearchResultCards = async (page, title, element) => {
           } alt="${movie.title}"/>
           <div class="movie__text__container">
             <h3 class="movie__title">${strCut(movie.title, 20)}</h3>
-            <p class="movie__date"> 개봉 : ${movie.release_date}</p>
+            <p class="movie__date"> 개봉일 : ${movie.release_date}</p>
             <p class="movie__desc">${
               movie.overview ? strCut(movie.overview, 35) : "설명이 없습니다."
             }</p>
@@ -127,18 +132,14 @@ export const displaySearchResultCards = async (page, title, element) => {
         divEl.innerHTML = movieItem;
         element.append(divEl);
       });
-      console.log("moviesData", moviesData);
-
-      return {
-        totalPages: moviesData.total_pages ? moviesData.total_pages : 0,
-        totalResults: moviesData.total_results ? moviesData.total_results : 0,
-      };
     } catch (error) {
       throw new Error(`이런 ${error} 가 발생했습니다.`);
     }
   } else {
     element.innerHTML = `<p class="movie__no__result">${title} 에 대한 검색 결과가 없습니다.</p>`;
   }
+
+  return returnData;
 };
 
 // bookMark 체크하기
@@ -202,7 +203,7 @@ export const displayBookMarkResultCards = (element) => {
         } alt="${mark.title}"/>
         <div class="movie__text__container">
           <h3 class="movie__title">${strCut(mark.title, 20)}</h3>
-          <p class="movie__date"> 개봉 : ${mark.date}</p>
+          <p class="movie__date"> 개봉일 : ${mark.date}</p>
           <p class="movie__desc">${
             mark.desc ? strCut(mark.desc, 35) : "설명이 없습니다."
           }</p>

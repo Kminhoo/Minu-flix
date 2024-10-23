@@ -55,8 +55,7 @@ export const getSearchMovies = async (page, title) => {
     });
 
     const data = await response.json();
-    console.log(data);
-    console.log(title);
+
     return data;
   } catch (error) {
     throw new Error(`이런 ${error} 가 발생했어요!`);
